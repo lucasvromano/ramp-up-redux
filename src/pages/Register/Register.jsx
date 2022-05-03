@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { TextField, Button, Box, Grid } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { addCar } from '../../store/cars/actions';
+import { hideMessage, showMessage } from '../../store/layout/actions';
 
 const emptyFormValue = {
   url: '',
@@ -9,6 +12,7 @@ const emptyFormValue = {
 
 const Register = () => {
   const [formData, setFormData] = useState(emptyFormValue);
+  const dispatch = useDispatch();
 
   const handleFormData = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,7 +20,15 @@ const Register = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(formData);
+
+    const addCurrentCar = addCar(formData);
+    dispatch(addCurrentCar);
+    setFormData(emptyFormValue);
+    dispatch(showMessage());
+
+    setTimeout(() => {
+      dispatch(hideMessage());
+    }, 3000)
   }
 
   return (

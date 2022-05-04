@@ -1,10 +1,10 @@
-import { createStore, combineReducers } from "redux";
-import carsReducer from './cars/reducer';
-import layoutReducer from './layout/reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import carsReducer from './cars/index';
+import layoutReducer from './layout/index';
 
-const rootReducer = combineReducers({
+const rootReducer = {
   cars: carsReducer,
   layout: layoutReducer
-});
+}
 
-export default createStore(rootReducer);
+export default configureStore({ reducer: rootReducer });

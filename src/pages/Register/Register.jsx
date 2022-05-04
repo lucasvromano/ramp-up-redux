@@ -2,8 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { TextField, Button, Box, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { addCar } from '../../store/cars/actions';
-import { hideMessage, showMessage } from '../../store/layout/actions';
+import { addCar } from '../../store/cars/index';
+import { hideMessage, showMessage } from '../../store/layout/index';
 
 const emptyFormValue = {
   url: '',
@@ -21,8 +21,7 @@ const Register = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const addCurrentCar = addCar(formData);
-    dispatch(addCurrentCar);
+    dispatch(addCar(formData));
     setFormData(emptyFormValue);
     dispatch(showMessage());
 

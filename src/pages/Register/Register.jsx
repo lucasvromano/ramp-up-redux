@@ -2,8 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { TextField, Button, Box, Grid } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { addCar } from '../../store/cars/index';
-import { hideMessage, showMessage } from '../../store/layout/index';
+import { addCar } from '../../store/reducers/cars';
+import { hideMessage, showMessage } from '../../store/reducers/layout';
 
 const emptyFormValue = {
   url: '',

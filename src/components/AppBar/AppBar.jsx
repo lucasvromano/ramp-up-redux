@@ -20,10 +20,6 @@ const pages = [
     path: '/register',
     text: 'Registrar'
   },
-  // {
-  //   path: '/',
-  //   text: 'Carrinho'
-  // },
 ];
 
 const ResponsiveAppBar = () => {
@@ -98,14 +94,6 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page, index) => (
-              // <Button
-              //   key={index}
-              //   onClick={handleCloseNavMenu}
-              //   sx={{ my: 2, color: 'white', display: 'block' }}
-              // >
-              //   {page.text}
-              // </Button>
-
               <Link
                 key={index}
                 to={page.path}
